@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Signup & Login</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body{
+     background-position: center;
+  background-size: cover;
+  background-image: url("https://img.freepik.com/free-vector/modern-gray-abstract-background-with-floating-shapes_1048-5397.jpg?size=626&ext=jpg&uid=R123758660&ga=GA1.1.415290301.1676470314&semt=ais");
+  min-height: 100%;
+    }
+    /* Custom styles */
+    .container {
+      max-width: 70%;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+<body>
+    <br><br><br><br><br>
+  <div class="container">
+        <div class="row">
+          <div class="col p-3">
+            
+    <h2>User signup</h2>
+    <form id="signupForm">
+        <div class="form-group">
+            <label for="signupName">User Name</label>
+            <input type="name" class="form-control" id="signupName" required>
+          </div>
+      <div class="form-group">
+        <label for="signupEmail">Email address</label>
+        <input type="email" class="form-control" id="signupEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="signupPassword">Password</label>
+        <input type="password" class="form-control" id="signupPassword" required>
+      </div>
+      <a href="userdashboard.html"><button type="button" class="btn btn-secondary" style="width: 100%;">sign up</button></a><br> <br> 
+     
+    </form>
+
+          </div>
+          <div class="col p-3 ">
+            <h2>User Login</h2>
+    <form id="signupForm">
+       
+      <div class="form-group">
+        <label for="signupEmail">Email address</label>
+        <input type="email" class="form-control" id="signupEmail" required>
+      </div>
+      <div class="form-group">
+        <label for="signupPassword">Password</label>
+        <input type="password" class="form-control" id="signupPassword" required>
+      </div>   
+      <a href="userdashboard.html"><button type="button" class="btn btn-secondary" style="width: 100%;">Login</button></form></a>
+     
+    </form>
+        </div>
+        </div>
+      </div>
+    <hr>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get signup form values
+      const signupEmail = document.getElementById('signupEmail').value;
+      const signupPassword = document.getElementById('signupPassword').value;
+
+      // Store signup data in local storage
+      localStorage.setItem('userEmail', signupEmail);
+      localStorage.setItem('userPassword', signupPassword);
+
+      // Redirect or perform other actions after signup
+      alert('User signed up successfully!');
+    });
+
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get login form values
+      const loginEmail = document.getElementById('loginEmail').value;
+      const loginPassword = document.getElementById('loginPassword').value;
+
+      // Retrieve user data from local storage
+      const storedEmail = localStorage.getItem('userEmail');
+      const storedPassword = localStorage.getItem('userPassword');
+
+      // Check if login credentials match stored data
+      if (loginEmail === storedEmail && loginPassword === storedPassword) {
+        // Redirect or perform other actions after successful login
+        alert('User logged in successfully!');
+      } else {
+        alert('Invalid email or password. Please try again.');
+      }
+    });
+  </script>
+</body>
+</html>

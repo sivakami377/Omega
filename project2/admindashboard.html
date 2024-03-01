@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin/dashboard</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.w3-sidebar a {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Montserrat", sans-serif;}
+</style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-light-grey w3-collapse w3-top" style="z-index:2;width:250px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <h3 class="w3-wide"><b>ADMIN/</b>dashboard</h3>
+  </div>
+  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
+    <a href="admindashboard.html" class="w3-bar-item w3-button">Dashboard</a>
+    <a href="assign project.html" class="w3-bar-item w3-button">Assign Projects</a>
+    <a href="review project.html" class="w3-bar-item w3-button">Review Projects</a>
+  </div>
+  
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+  <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:250px">
+ 
+
+</div>
+  <!-- Push down content on small screens -->
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  
+  <!-- Top header -->
+  <header class="w3-container w3-xlarge">
+    <p class="w3-left">Admin</p>
+    <p class="w3-right">
+    </p>
+  </header>
+
+  <!-- Image header -->
+  <div class="w3-display-container w3-container">
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom styles */
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+    }
+    .project-status {
+      margin-top: 20px;
+    }
+    
+    body{
+     background-position: center;
+  background-size: cover;
+  background-image: url("https://tse1.mm.bing.net/th?id=OIP.Wsd31ToL1mhVHPP0m5W6ewHaFj&pid=Api&rs=1&c=1&qlt=95&w=125&h=93");
+  min-height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Dashboard</h2>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Pending Projects</h5>
+            <p class="card-text" id="pendingProjectsCount">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">In-progress Projects</h5>
+            <p class="card-text" id="inProgressProjectsCount">0</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Completed Projects</h5>
+            <p class="card-text" id="completedProjectsCount">0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-status">
+      <h2>Add New Project</h2>
+      <form id="projectForm">
+        <div class="form-group">
+          <label for="projectName">Project Name</label>
+          <input type="text" class="form-control" id="projectName" required>
+        </div>
+        <div class="form-group">
+          <label for="projectStatus">Project Status</label>
+          <select class="form-control" id="projectStatus" required>
+            <option value="pending">Pending</option>
+            <option value="inprogress">In-progress</option>
+            <option value="completed">Completed</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-secondary">Add Project</button>
+      </form>
+    </div>
+
+    <hr>
+    <h2>Project List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Project Name</th>
+          <th scope="col">Status</th>
+        </tr>
+      </thead>
+      <tbody id="projectList">
+        <!-- Project items will be dynamically added here -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bootstrap JS and jQuery -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Function to update project counts
+    function updateProjectCounts() {
+      const projects = JSON.parse(localStorage.getItem('projects')) || [];
+      let pendingCount = 0;
+      let inProgressCount = 0;
+      let completedCount = 0;
+
+      projects.forEach(project => {
+        switch (project.status) {
+          case 'pending':
+            pendingCount++;
+            break;
+          case 'inprogress':
+            inProgressCount++;
+            break;
+          case 'completed':
+            completedCount++;
+            break;
+          default:
+            break;
+        }
+      });
+
+      document.getElementById('pendingProjectsCount').textContent = pendingCount;
+      document.getElementById('inProgressProjectsCount').textContent = inProgressCount;
+      document.getElementById('completedProjectsCount').textContent = completedCount;
+    }
+
+    // Function to display projects
+    function displayProjects() {
+      const projectList = document.getElementById('projectList');
+      projectList.innerHTML = '';
+
+      const projects = JSON.parse(localStorage.getItem('projects')) || [];
+
+      projects.forEach(project => {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+          <td>${project.projectName}</td>
+          <td>${project.status}</td>
+        `;
+        projectList.appendChild(newRow);
+      });
+    }
+
+    // Add new project
+    document.getElementById('projectForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // Get form values
+      const projectName = document.getElementById('projectName').value;
+      const projectStatus = document.getElementById('projectStatus').value;
+
+      // Create project object
+      const project = {
+        projectName,
+        status: projectStatus
+      };
+
+      // Get existing projects from local storage or initialize empty array
+      let projects = JSON.parse(localStorage.getItem('projects')) || [];
+      
+      // Add new project to array
+      projects.push(project);
+
+      // Save updated projects array to local storage
+      localStorage.setItem('projects', JSON.stringify(projects));
+
+      // Update project counts
+      updateProjectCounts();
+
+      // Refresh project list
+      displayProjects();
+
+      // Clear form fields
+      document.getElementById('projectForm').reset();
+    });
+
+    // Display projects and project counts when page loads
+    displayProjects();
+    updateProjectCounts();
+  </script>
+</body>
+</html>
+
+  </div>
+
+
+<script>
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway",}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://img.freepik.com/free-photo/low-angle-grayscale-shot-business-buildings-with-cloudy-sky-background_181624-23358.jpg?size=626&ext=jpg&uid=R123758660&ga=GA1.1.415290301.1676470314&semt=ais");
+  min-height: 100%;
+  
+}
+
+body{
+  background-position: center;
+background-size: cover;
+background-image:url("https://img.freepik.com/free-photo/black-white-bokeh-particles_1017-3297.jpg?size=626&ext=jpg&uid=R123758660&ga=GA1.1.415290301.1676470314&semt=ais");
+ }
+header.span{
+  font-size: 40px;
+  color: black;
+}
+.w3-bar .w3-button {
+  padding: 16px;
+}
